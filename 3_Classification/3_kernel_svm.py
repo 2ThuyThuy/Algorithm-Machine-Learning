@@ -1,4 +1,3 @@
-from cgi import test
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -27,11 +26,9 @@ y_pred = model.predict(X_test)
 def plot_svm(model,ax=None, plot_support=True, X_train=[]):
     if ax == None:
         ax = plt.gca()
-    x1lim = ax.get_xlim()
-    x2lim = ax.get_ylim()
 
     X, Y = np.meshgrid(np.arange(start = X_train[:, 0].min() - 1, stop = X_train[:, 0].max() + 1, step = 0.01),
-                     np.arange(start = X_train[:, 1].min() - 1, stop = X_train[:, 1].max() + 1, step = 0.01))
+                       np.arange(start = X_train[:, 1].min() - 1, stop = X_train[:, 1].max() + 1, step = 0.01))
 
 
     xy = np.vstack([X.ravel(),Y.ravel()]).T
@@ -46,7 +43,7 @@ def plot_svm(model,ax=None, plot_support=True, X_train=[]):
                    s=300,linewidths=1, edgecolors='k')
 
 plt.scatter(X_train[:,0],X_train[:,1],c=y_train, cmap=plt.cm.Set1)
-plt.scatter(X_test[:,0],X_test[:,1],c=y_test, cmap=plt.cm.Set2)
+#plt.scatter(X_test[:,0],X_test[:,1],c=y_test, cmap=plt.cm.Set2)
 plot_svm(model,plot_support=False,X_train=X_train)
 plt.xlabel('Age')
 plt.ylabel('Estimated Salary')
