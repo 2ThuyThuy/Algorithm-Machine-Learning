@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 #load data
-path = "D:\\Study\\ML\\Algorithm-Machine-Learning\\3_Classification\\data\\Social_Network_Ads.csv"
+path = "Social_Network_Ads.csv"
 dataset = pd.read_csv(path)
 X = dataset.iloc[:,[2,3]].values # get age
 y = dataset.iloc[:,4].values  # get boolean
@@ -26,6 +26,11 @@ model = LogisticRegression(random_state=0)
 model.fit(X_train,y_train)
 
 y_pred = model.predict(X_test)
+
+from sklearn.metrics import accuracy_score
+
+print(accuracy_score(y_test, y_pred))
+
 #visual 
 from matplotlib.colors import ListedColormap
 X_set, y_set = X_train, y_train

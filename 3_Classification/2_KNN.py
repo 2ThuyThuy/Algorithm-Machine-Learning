@@ -25,15 +25,16 @@ model.fit(X_train, y_train)
 
 y_pred = model.predict(X_test)
 
-
+from sklearn.metrics import accuracy_score
+print(accuracy_score(y_test,y_pred))
 
 from matplotlib.colors import ListedColormap
 X_set, y_set = X_test, y_test
 X1, X2 = np.meshgrid(np.arange(start = X_set[:, 0].min() - 1, stop = X_set[:, 0].max() + 1, step = 0.01),
                      np.arange(start = X_set[:, 1].min() - 1, stop = X_set[:, 1].max() + 1, step = 0.01))
 
-print(X1.ravel())
-print(np.array([X1.ravel(), X2.ravel()]).T)
+#print(X1.ravel())
+3print(np.array([X1.ravel(), X2.ravel()]).T)
 plt.contourf(X1, X2, model.predict(np.array([X1.ravel(), X2.ravel()]).T).reshape(X1.shape),
              alpha = 0.75, cmap = ListedColormap(('red', 'green')))
 
