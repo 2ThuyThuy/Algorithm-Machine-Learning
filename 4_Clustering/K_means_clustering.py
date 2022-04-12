@@ -5,15 +5,18 @@ import matplotlib.pyplot as plt
 dataset = pd.read_csv('Mall_Customers.csv')
 X = dataset.iloc[:,[3,4]].values
 
+
 from sklearn.cluster import KMeans
-from yellowbrick.cluster.elbow import KElbowVisualizer
 kmeans = KMeans(n_clusters=5, init='k-means++', random_state=42)
 y_kmeans = kmeans.fit_predict(X)
 
 # use Elbow to slove K 
+""" 
+from yellowbrick.cluster.elbow import KElbowVisualizer
 model = KElbowVisualizer(KMeans(),k=10)
 model.fit(X)
 model.show()
+"""
 
 
 plt.scatter(X[y_kmeans == 0,0],X[y_kmeans == 0,1],s=100, c='red', label='1')

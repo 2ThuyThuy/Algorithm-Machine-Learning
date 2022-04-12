@@ -34,7 +34,7 @@ X1, X2 = np.meshgrid(np.arange(start = X_set[:, 0].min() - 1, stop = X_set[:, 0]
                      np.arange(start = X_set[:, 1].min() - 1, stop = X_set[:, 1].max() + 1, step = 0.01))
 
 #print(X1.ravel())
-3print(np.array([X1.ravel(), X2.ravel()]).T)
+print(np.array([X1.ravel(), X2.ravel()]).T)
 plt.contourf(X1, X2, model.predict(np.array([X1.ravel(), X2.ravel()]).T).reshape(X1.shape),
              alpha = 0.75, cmap = ListedColormap(('red', 'green')))
 
